@@ -1,0 +1,6 @@
+E:\Hadhod\c#\ClassItemLibrary\bin\Debug\ClassItemLibrary.dll
+E:\Hadhod\c#\ClassItemLibrary\bin\Debug\ClassItemLibrary.pdb
+E:\Hadhod\c#\ClassItemLibrary\obj\Debug\ClassItemLibrary.csproj.AssemblyReference.cache
+E:\Hadhod\c#\ClassItemLibrary\obj\Debug\ClassItemLibrary.csproj.CoreCompileInputs.cache
+E:\Hadhod\c#\ClassItemLibrary\obj\Debug\ClassItemLibrary.dll
+E:\Hadhod\c#\ClassItemLibrary\obj\Debug\ClassItemLibrary.pdb
