@@ -13,12 +13,41 @@ namespace ClassItemLibrary
         public string Date { get; set; }
         public string Time { get; set; }
         public float Total {  get; set; }
-        public int orderNumber { get; set; }
+
+        public int orderNumber {  get; set; }
+
+        public static int getOrderNumber()
+        {
+            List<clsOrder> orderList = LoadDataFromFileToOrderList();
+
+            if (orderList.Count == 0)
+            {
+                
+                return 1;
+            }
+
+            clsOrder order = orderList[orderList.Count - 1];
+
+            return order.orderNumber + 1;
+
+           
+        }
+
+        public static float getTotal(List<clsItem> items)
+        {
+            float total = 0;
+
+            foreach(clsItem item in items)
+            {
+                total += item.Price;
+            }
+
+            return total;
+        }
+
         public clsOrder(string date, string time, float total,int OrderNumber ,List<clsItem> itemsList)
         {
-            //DateTime now = DateTime.Now;
-            //Date = now.ToString("yyyy-MM-dd"); 
-            //Time = now.ToString("HH:mm:ss");
+
             Date = date;
             Time = time;
             Total = total;
@@ -26,6 +55,15 @@ namespace ClassItemLibrary
             orderItems = itemsList;
 
         }
+
+        public void addOrder()
+        {
+            List<clsOrder> orders = LoadDataFromFileToOrderList();
+            orders.Add(this);
+            LoadDataFromObrderListToFile(orders);
+        }
+
+
 
         //_________________________________________________________________________
         // Files
@@ -69,7 +107,7 @@ namespace ClassItemLibrary
                 int.Parse(orderFields[3]), ConvertArrItemsToclsItems(ConvertLineToItemsArr(orderFields[4])) );
         }
 
-        public static List<clsOrder> LoadDataFromFileToObjList()
+        public static List<clsOrder> LoadDataFromFileToOrderList()
 
 
         {

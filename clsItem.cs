@@ -124,24 +124,6 @@ namespace ClassItemLibrary
 
         public static string ConvertItemObjectToLine(clsItem item, string separator = "#//#")
         {
-
-            if (item == null)
-            {
-                throw new ArgumentNullException(nameof(item), "Item cannot be null");
-            }
-
-            
-            if (string.IsNullOrWhiteSpace(item.Name))
-            {
-                throw new ArgumentException("Item name cannot be null or empty", nameof(item.Name));
-            }
-
-           
-            if (item.Price < 0)
-            {
-                throw new ArgumentException("Item price cannot be negative", nameof(item.Price));
-            }
-
             return $"{item.Name}{separator}{item.Price}";
         }
 
