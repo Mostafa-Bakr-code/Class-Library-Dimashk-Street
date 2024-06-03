@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsLog.cs" />
     <Compile Include="UserSession.cs" />
     <Compile Include="clsItem.cs" />
     <Compile Include="clsOrder.cs" />
