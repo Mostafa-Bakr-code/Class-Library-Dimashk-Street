@@ -63,6 +63,39 @@ namespace ClassItemLibrary
             LoadDataFromObrderListToFile(orders);
         }
 
+        public static float calcTotalinRange(DateTime dateFrom, DateTime dateTo)
+        {
+            float total = 0;
+
+            List<clsOrder> orders = LoadDataFromFileToOrderList();
+
+            foreach (clsOrder item in orders)
+            {
+                string dateString = item.Date;
+
+                DateTime date;
+                bool isValidDate = DateTime.TryParseExact(dateString, "yyyy-MM-dd",
+                                    System.Globalization.CultureInfo.InvariantCulture,
+                                    System.Globalization.DateTimeStyles.None, out date);
+
+                if (!isValidDate)
+                {
+                    continue; 
+                }
+
+                if (date > dateTo)
+                {
+                    break; 
+                }
+
+                if (date >= dateFrom)
+                {
+                    total += item.Total;
+                }
+            }
+
+            return total;
+        }
 
 
         //_________________________________________________________________________
@@ -147,6 +180,8 @@ namespace ClassItemLibrary
         }
 
         //_____________________________________________________________________________
+
+
 
     }
 }
